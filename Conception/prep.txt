@@ -1,0 +1,33 @@
+انا كي رحت لدانون باش نوجد ل projet de fin d’études مضنيتش نلقى عندهم مشاكل ف la gestion de stock 
+نضرا انها شركة عالمية و تتصدر مرتبة عالية في صناعة المواد الغذائية.
+وضحلي Lencadreur انو ل usine عندو ضعف فاتعامل مع les distributeur تاعو 
+و service commercial يلقى صعوبة فاتخاد القرارات و السبب يعود Lretard F les informations d'inventaire.
+--------------
+la question تاعي: و شنو هي العوامل لي راهي تسبب هذا التاخرF les informations d'inventaire ?
+ادا تمكنا من فهم هدي العوامل نقدرو ن devlopiw un systeme informatique pour simplifier 
+l'utilisation de l'inventaire fl'organisation.
+---------------
+لكن باش نجاوب على la question تاعي كان لازم علي نفهم نظام الإدارة الحالي للشركة
+بمساعدة الخدامين ف service IT j'ai créé un schéma de flux d'information.[#].
+--------------
+بعدما فهمت les processus de ventes كيفاش تسير في danone 
+J'ai analysé les documents et les opérations effectuées par chaque poste
+------
+بعد مدة شهر ونا نحوس على الفجوات لى كاينة Fsystem تاع danone 
+لاحظت بلي service client بعدما Yconfirmi la commande مايكون عندو حتا information على l'état d commande
+حتاوين توصل السلعة لل client وزيد la livraison تاع Lclient راهي تتقسم plusieur fois خاتاش gestionnaire de stock
+راهو يلقا صعوبة فتتبع les niveaux de stock 
+و la confirmation orale des produits هما لي قادرين يؤدو لسوء الفهم و retard
+------
+قترحت Lencadreur un système automatisé pour confirmé les commande et suivi les niveaux de stock
+ووعدتو بلي راح يكون كاين d'autres opérations d'automatisation liés à la vente f systéme jdid 
+------
+عندي الان les donnée nécessaire باش نبدا L'étude conceptuel تاعي
+حكم قاع les rubrique des documents و Filtrithoum على حساب الاهمية تاعهم و
+j'ai crée une nouvelle methode de codification
+
+
+
+
+
+

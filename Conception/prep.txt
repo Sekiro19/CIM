@@ -4,27 +4,38 @@
 و service commercial يلقى صعوبة فاتخاد القرارات و السبب يعود Lretard F les informations d'inventaire.
 --------------
 la question تاعي: و شنو هي العوامل لي راهي تسبب هذا التاخرF les informations d'inventaire ?
-ادا تمكنا من فهم هدي العوامل نقدرو ن devlopiw un systeme informatique pour simplifier 
-l'utilisation de l'inventaire fl'organisation.
+ادا تمكنا من فهم هدي العوامل نقدرو ن devlopiw un systeme informatique  
+pour simplifier l'utilisation de l'inventaire fl'organisation.
 ---------------
 لكن باش نجاوب على la question تاعي كان لازم علي نفهم نظام الإدارة الحالي للشركة
-بمساعدة الخدامين ف service IT j'ai créé un schéma de flux d'information.[#].
+بمساعدة الخدامين F service IT j'ai créé un schéma de flux d'information .[#].
 --------------
-بعدما فهمت les processus de ventes كيفاش تسير في danone 
+كي فهمت les processus de ventes تاع danone 
 J'ai analysé les documents et les opérations effectuées par chaque poste
+و بعد مدة شهر ونا نحوس على الفجوات لى كاينة Fsystem تاع danone 
 ------
-بعد مدة شهر ونا نحوس على الفجوات لى كاينة Fsystem تاع danone 
 لاحظت بلي service client بعدما Yconfirmi la commande مايكون عندو حتا information على l'état d commande
 حتاوين توصل السلعة لل client وزيد la livraison تاع Lclient راهي تتقسم plusieur fois خاتاش gestionnaire de stock
-راهو يلقا صعوبة فتتبع les niveaux de stock 
-و la confirmation orale des produits هما لي قادرين يؤدو لسوء الفهم و retard
+راهو يلقا صعوبة فتتبع les niveaux de stock مع la confirmation orale des produits 
+هاذو قاع قادرين يؤدو لسوء الفهم و retard
 ------
 قترحت Lencadreur un système automatisé pour confirmé les commande et suivi les niveaux de stock
 ووعدتو بلي راح يكون كاين d'autres opérations d'automatisation liés à la vente f systéme jdid 
 ------
 عندي الان les donnée nécessaire باش نبدا L'étude conceptuel تاعي
-حكم قاع les rubrique des documents و Filtrithoum على حساب الاهمية تاعهم و
-j'ai crée une nouvelle methode de codification
+حكمت قاع les rubrique, dant les documents و Filtrithoum على حساب الاهمية تاعهم 
+------
+les donnée لي جمعتهم حد الان بزاف و compliki و كان لازم عليا N organizihoum
+ستعملت une Technique.[#]. يعيطولها la method MERISE
+decompozit les donnée على شكل des entités و حددت les relations بيناتهم "par example "client<-->commande 
+------
+le produit final هو une application desktop.[#].
+créet la base de donnée b SQL SERVER
+ و interface b PYTHON
+l'aplication تاعي عجبت Lencadreur و الزملاء تاعو و رانا حا نرجعوها standar
+باش يستنفعو بيها قاع les entreprise commercial.
+
+
 
 
 

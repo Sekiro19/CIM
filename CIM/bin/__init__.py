@@ -1,2 +1,2 @@
-from .ui import Ui_MainWindow, Ui_LoginWindow
+from .ui import Ui_MainWindow, Ui_loginForm
 from .modules import *

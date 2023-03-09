@@ -175,7 +175,7 @@ background-color: transparent;
 QToolBox::tab {
 	border-radius: none;
 	font: 700 13pt &quot;Segoe UI&quot;;
-    color: rgb(119,136,153);
+    color: rgb(137, 156, 176);
 	padding-left: 10px;
 	background-repeat: none;
 
@@ -440,7 +440,7 @@ color: rgb(255, 255, 255);
                <property name="tabSpacing">
                 <number>15</number>
                </property>
-               <widget class="QWidget" name="page_6">
+               <widget class="QWidget" name="tabDepot">
                 <property name="geometry">
                  <rect>
                   <x>0</x>
@@ -574,7 +574,7 @@ color: rgb(255, 255, 255);
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="tabMenuClient">
+               <widget class="QWidget" name="tabClient">
                 <property name="geometry">
                  <rect>
                   <x>0</x>
@@ -624,7 +624,7 @@ color: rgb(255, 255, 255);
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="page_3">
+               <widget class="QWidget" name="tabCmd">
                 <property name="geometry">
                  <rect>
                   <x>0</x>
@@ -690,7 +690,7 @@ color: rgb(255, 255, 255);
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="page_4">
+               <widget class="QWidget" name="tabFac">
                 <property name="geometry">
                  <rect>
                   <x>0</x>
@@ -756,7 +756,7 @@ color: rgb(255, 255, 255);
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="page_5">
+               <widget class="QWidget" name="tabLiv">
                 <property name="geometry">
                  <rect>
                   <x>0</x>
@@ -828,7 +828,7 @@ color: rgb(255, 255, 255);
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="page">
+               <widget class="QWidget" name="tabTools">
                 <property name="geometry">
                  <rect>
                   <x>0</x>
@@ -1126,7 +1126,7 @@ QPushButton:hover {
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
                <property name="currentIndex">
-                <number>4</number>
+                <number>13</number>
                </property>
                <widget class="QWidget" name="pageProduit">
                 <property name="styleSheet">
@@ -1173,8 +1173,8 @@ QPushButton:hover {
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>873</width>
-                      <height>458</height>
+                      <width>762</width>
+                      <height>173</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -1678,8 +1678,8 @@ QPushButton:hover {
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>873</width>
-                      <height>458</height>
+                      <width>752</width>
+                      <height>295</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -1879,7 +1879,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -2024,7 +2024,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -3068,8 +3068,8 @@ QPushButton:hover {
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>873</width>
-                      <height>458</height>
+                      <width>773</width>
+                      <height>295</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_33">
@@ -3269,7 +3269,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -3414,7 +3414,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -4072,8 +4072,8 @@ QPushButton:hover {
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>873</width>
-                      <height>458</height>
+                      <width>636</width>
+                      <height>303</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_44">
@@ -4251,7 +4251,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>5</day>
+                              <day>1</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -4347,7 +4347,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>6</day>
+                              <day>2</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -5156,7 +5156,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>6</day>
+                              <day>2</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -5238,7 +5238,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>6</day>
+                              <day>2</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -6449,7 +6449,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>5</day>
+                              <day>1</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -6518,7 +6518,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>5</day>
+                              <day>1</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -7919,7 +7919,7 @@ QComboBox QAbstractItemView {
                         <second>0</second>
                         <year>2022</year>
                         <month>12</month>
-                        <day>6</day>
+                        <day>2</day>
                        </datetime>
                       </property>
                       <property name="displayFormat">
@@ -9584,7 +9584,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -9651,7 +9651,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -9686,7 +9686,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -9737,7 +9737,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -10332,8 +10332,8 @@ QPushButton:hover {
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>873</width>
-                      <height>458</height>
+                      <width>782</width>
+                      <height>290</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -10607,7 +10607,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -10674,7 +10674,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -10709,7 +10709,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">
@@ -10760,7 +10760,7 @@ QComboBox QAbstractItemView {
                               <second>0</second>
                               <year>2022</year>
                               <month>12</month>
-                              <day>7</day>
+                              <day>3</day>
                              </datetime>
                             </property>
                             <property name="displayFormat">

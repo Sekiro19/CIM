@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icons">
+    <file>bin/ui/icons/loadingInf.gif</file>
     <file>bin/ui/icons/icons8-close-30.png</file>
     <file>bin/ui/icons/icons8-close-window-50.png</file>
     <file>bin/ui/icons/icons8-document-30.png</file>

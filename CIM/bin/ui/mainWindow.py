@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainWindowlVxFpA.ui'
+## Form generated from reading UI file 'mainWindowMOvKpc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -177,15 +177,15 @@ class Ui_MainWindow(object):
 "QToolBox::tab {\n"
 "	border-radius: none;\n"
 "	font: 700 13pt \"Segoe UI\";\n"
-"    color: rgb(119,136,153);\n"
+"    color: rgb(137, 156, 176);\n"
 "	padding-left: 10px;\n"
 "	background-repeat: none;\n"
 "\n"
 "}\n"
 "\n"
 "QToolBox::tab:selected {\n"
-"	"
-                        "color: rgb(255, 255, 255);\n"
+""
+                        "	color: rgb(255, 255, 255);\n"
 "	background-color: rgb(48, 67, 106);\n"
 "	border-left: 4px solid rgb(0, 249, 248);\n"
 "}\n"
@@ -348,15 +348,15 @@ class Ui_MainWindow(object):
         self.toolBox.setObjectName(u"toolBox")
         self.toolBox.setMinimumSize(QSize(0, 300))
         self.toolBox.setMaximumSize(QSize(16777215, 325))
-        self.page_6 = QWidget()
-        self.page_6.setObjectName(u"page_6")
-        self.page_6.setGeometry(QRect(0, 0, 230, 88))
-        self.page_6.setMinimumSize(QSize(0, 0))
-        self.verticalLayout_5 = QVBoxLayout(self.page_6)
+        self.tabDepot = QWidget()
+        self.tabDepot.setObjectName(u"tabDepot")
+        self.tabDepot.setGeometry(QRect(0, 0, 230, 88))
+        self.tabDepot.setMinimumSize(QSize(0, 0))
+        self.verticalLayout_5 = QVBoxLayout(self.tabDepot)
         self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.btnPageProduit = QPushButton(self.page_6)
+        self.btnPageProduit = QPushButton(self.tabDepot)
         self.btnPageProduit.setObjectName(u"btnPageProduit")
         self.btnPageProduit.setMaximumSize(QSize(16777215, 25))
         self.btnPageProduit.setCursor(QCursor(Qt.PointingHandCursor))
@@ -367,7 +367,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.btnPageProduit)
 
-        self.btnPageStock = QPushButton(self.page_6)
+        self.btnPageStock = QPushButton(self.tabDepot)
         self.btnPageStock.setObjectName(u"btnPageStock")
         self.btnPageStock.setMaximumSize(QSize(16777215, 25))
         self.btnPageStock.setCursor(QCursor(Qt.PointingHandCursor))
@@ -378,7 +378,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.btnPageStock)
 
-        self.btnPageInv = QPushButton(self.page_6)
+        self.btnPageInv = QPushButton(self.tabDepot)
         self.btnPageInv.setObjectName(u"btnPageInv")
         self.btnPageInv.setMaximumSize(QSize(16777215, 25))
         self.btnPageInv.setCursor(QCursor(Qt.PointingHandCursor))
@@ -389,7 +389,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.btnPageInv)
 
-        self.btnPageMS = QPushButton(self.page_6)
+        self.btnPageMS = QPushButton(self.tabDepot)
         self.btnPageMS.setObjectName(u"btnPageMS")
         self.btnPageMS.setMaximumSize(QSize(16777215, 25))
         self.btnPageMS.setCursor(QCursor(Qt.PointingHandCursor))
@@ -399,15 +399,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.btnPageMS)
 
-        self.toolBox.addItem(self.page_6, u"D\u00e9p\u00f4t ")
-        self.tabMenuClient = QWidget()
-        self.tabMenuClient.setObjectName(u"tabMenuClient")
-        self.tabMenuClient.setGeometry(QRect(0, 0, 230, 66))
-        self.verticalLayout_17 = QVBoxLayout(self.tabMenuClient)
+        self.toolBox.addItem(self.tabDepot, u"D\u00e9p\u00f4t ")
+        self.tabClient = QWidget()
+        self.tabClient.setObjectName(u"tabClient")
+        self.tabClient.setGeometry(QRect(0, 0, 230, 66))
+        self.verticalLayout_17 = QVBoxLayout(self.tabClient)
         self.verticalLayout_17.setSpacing(0)
         self.verticalLayout_17.setObjectName(u"verticalLayout_17")
         self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
-        self.btnPageClient = QPushButton(self.tabMenuClient)
+        self.btnPageClient = QPushButton(self.tabClient)
         self.btnPageClient.setObjectName(u"btnPageClient")
         self.btnPageClient.setMaximumSize(QSize(16777215, 25))
         self.btnPageClient.setCursor(QCursor(Qt.PointingHandCursor))
@@ -417,15 +417,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_17.addWidget(self.btnPageClient, 0, Qt.AlignTop)
 
-        self.toolBox.addItem(self.tabMenuClient, u"Client")
-        self.page_3 = QWidget()
-        self.page_3.setObjectName(u"page_3")
-        self.page_3.setGeometry(QRect(0, 0, 230, 66))
-        self.verticalLayout_31 = QVBoxLayout(self.page_3)
+        self.toolBox.addItem(self.tabClient, u"Client")
+        self.tabCmd = QWidget()
+        self.tabCmd.setObjectName(u"tabCmd")
+        self.tabCmd.setGeometry(QRect(0, 0, 230, 66))
+        self.verticalLayout_31 = QVBoxLayout(self.tabCmd)
         self.verticalLayout_31.setSpacing(0)
         self.verticalLayout_31.setObjectName(u"verticalLayout_31")
         self.verticalLayout_31.setContentsMargins(0, 0, 0, 0)
-        self.btnPageCmd = QPushButton(self.page_3)
+        self.btnPageCmd = QPushButton(self.tabCmd)
         self.btnPageCmd.setObjectName(u"btnPageCmd")
         self.btnPageCmd.setMaximumSize(QSize(16777215, 25))
         self.btnPageCmd.setCursor(QCursor(Qt.PointingHandCursor))
@@ -435,22 +435,22 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_31.addWidget(self.btnPageCmd)
 
-        self.btnPageInsertCmd = QPushButton(self.page_3)
+        self.btnPageInsertCmd = QPushButton(self.tabCmd)
         self.btnPageInsertCmd.setObjectName(u"btnPageInsertCmd")
         self.btnPageInsertCmd.setMaximumSize(QSize(16777215, 25))
         self.btnPageInsertCmd.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.verticalLayout_31.addWidget(self.btnPageInsertCmd, 0, Qt.AlignTop)
 
-        self.toolBox.addItem(self.page_3, u"Commande")
-        self.page_4 = QWidget()
-        self.page_4.setObjectName(u"page_4")
-        self.page_4.setGeometry(QRect(0, 0, 230, 66))
-        self.verticalLayout_32 = QVBoxLayout(self.page_4)
+        self.toolBox.addItem(self.tabCmd, u"Commande")
+        self.tabFac = QWidget()
+        self.tabFac.setObjectName(u"tabFac")
+        self.tabFac.setGeometry(QRect(0, 0, 230, 66))
+        self.verticalLayout_32 = QVBoxLayout(self.tabFac)
         self.verticalLayout_32.setSpacing(0)
         self.verticalLayout_32.setObjectName(u"verticalLayout_32")
         self.verticalLayout_32.setContentsMargins(0, 0, 0, 0)
-        self.btnPageFacture = QPushButton(self.page_4)
+        self.btnPageFacture = QPushButton(self.tabFac)
         self.btnPageFacture.setObjectName(u"btnPageFacture")
         self.btnPageFacture.setMaximumSize(QSize(16777215, 25))
         self.btnPageFacture.setCursor(QCursor(Qt.PointingHandCursor))
@@ -460,22 +460,22 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_32.addWidget(self.btnPageFacture)
 
-        self.btnPageInsertFacture = QPushButton(self.page_4)
+        self.btnPageInsertFacture = QPushButton(self.tabFac)
         self.btnPageInsertFacture.setObjectName(u"btnPageInsertFacture")
         self.btnPageInsertFacture.setMaximumSize(QSize(16777215, 25))
         self.btnPageInsertFacture.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.verticalLayout_32.addWidget(self.btnPageInsertFacture, 0, Qt.AlignTop)
 
-        self.toolBox.addItem(self.page_4, u"Facture")
-        self.page_5 = QWidget()
-        self.page_5.setObjectName(u"page_5")
-        self.page_5.setGeometry(QRect(0, 0, 230, 66))
-        self.verticalLayout_38 = QVBoxLayout(self.page_5)
+        self.toolBox.addItem(self.tabFac, u"Facture")
+        self.tabLiv = QWidget()
+        self.tabLiv.setObjectName(u"tabLiv")
+        self.tabLiv.setGeometry(QRect(0, 0, 230, 66))
+        self.verticalLayout_38 = QVBoxLayout(self.tabLiv)
         self.verticalLayout_38.setSpacing(0)
         self.verticalLayout_38.setObjectName(u"verticalLayout_38")
         self.verticalLayout_38.setContentsMargins(0, 0, 0, 0)
-        self.btnPageLiv = QPushButton(self.page_5)
+        self.btnPageLiv = QPushButton(self.tabLiv)
         self.btnPageLiv.setObjectName(u"btnPageLiv")
         self.btnPageLiv.setMaximumSize(QSize(16777215, 25))
         self.btnPageLiv.setCursor(QCursor(Qt.PointingHandCursor))
@@ -485,7 +485,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_38.addWidget(self.btnPageLiv)
 
-        self.btnPageInsertLiv = QPushButton(self.page_5)
+        self.btnPageInsertLiv = QPushButton(self.tabLiv)
         self.btnPageInsertLiv.setObjectName(u"btnPageInsertLiv")
         self.btnPageInsertLiv.setMinimumSize(QSize(0, 0))
         self.btnPageInsertLiv.setMaximumSize(QSize(16777215, 25))
@@ -493,15 +493,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_38.addWidget(self.btnPageInsertLiv, 0, Qt.AlignTop)
 
-        self.toolBox.addItem(self.page_5, u"Livraison")
-        self.page = QWidget()
-        self.page.setObjectName(u"page")
-        self.page.setGeometry(QRect(0, 0, 230, 66))
-        self.verticalLayout_48 = QVBoxLayout(self.page)
+        self.toolBox.addItem(self.tabLiv, u"Livraison")
+        self.tabTools = QWidget()
+        self.tabTools.setObjectName(u"tabTools")
+        self.tabTools.setGeometry(QRect(0, 0, 230, 66))
+        self.verticalLayout_48 = QVBoxLayout(self.tabTools)
         self.verticalLayout_48.setSpacing(0)
         self.verticalLayout_48.setObjectName(u"verticalLayout_48")
         self.verticalLayout_48.setContentsMargins(0, 0, 0, 0)
-        self.btnPageCharts = QPushButton(self.page)
+        self.btnPageCharts = QPushButton(self.tabTools)
         self.btnPageCharts.setObjectName(u"btnPageCharts")
         self.btnPageCharts.setMaximumSize(QSize(16777215, 25))
         self.btnPageCharts.setCursor(QCursor(Qt.PointingHandCursor))
@@ -512,7 +512,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_48.addWidget(self.btnPageCharts, 0, Qt.AlignTop)
 
-        self.btnPageReport = QPushButton(self.page)
+        self.btnPageReport = QPushButton(self.tabTools)
         self.btnPageReport.setObjectName(u"btnPageReport")
         self.btnPageReport.setMaximumSize(QSize(16777215, 25))
         self.btnPageReport.setCursor(QCursor(Qt.PointingHandCursor))
@@ -523,7 +523,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_48.addWidget(self.btnPageReport, 0, Qt.AlignTop)
 
-        self.toolBox.addItem(self.page, u"Tools")
+        self.toolBox.addItem(self.tabTools, u"Tools")
 
         self.verticalLayout_4.addWidget(self.toolBox, 0, Qt.AlignTop)
 
@@ -633,7 +633,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 873, 458))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 762, 173))
         self.verticalLayout_8 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.verticalLayout_8.setContentsMargins(-1, 15, -1, -1)
@@ -856,7 +856,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 873, 458))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 752, 295))
         self.verticalLayout_26 = QVBoxLayout(self.scrollAreaWidgetContents_5)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.verticalLayout_26.setContentsMargins(-1, 15, -1, -1)
@@ -948,7 +948,7 @@ class Ui_MainWindow(object):
         self.dateDCCmdFilterT1.setMinimumSize(QSize(0, 35))
         self.dateDCCmdFilterT1.setMaximumSize(QSize(16777215, 35))
         self.dateDCCmdFilterT1.setStyleSheet(u"QWidget {background-color: transparent}")
-        self.dateDCCmdFilterT1.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDCCmdFilterT1.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout_2.addWidget(self.dateDCCmdFilterT1, 1, 4, 1, 1)
 
@@ -1012,7 +1012,7 @@ class Ui_MainWindow(object):
         self.dateDCCmdFilterT2.setMinimumSize(QSize(0, 35))
         self.dateDCCmdFilterT2.setMaximumSize(QSize(16777215, 35))
         self.dateDCCmdFilterT2.setStyleSheet(u"QWidget {background-color: transparent}")
-        self.dateDCCmdFilterT2.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDCCmdFilterT2.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout_2.addWidget(self.dateDCCmdFilterT2, 2, 4, 1, 1)
 
@@ -1440,7 +1440,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 873, 458))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 773, 295))
         self.verticalLayout_33 = QVBoxLayout(self.scrollAreaWidgetContents_6)
         self.verticalLayout_33.setObjectName(u"verticalLayout_33")
         self.verticalLayout_33.setContentsMargins(-1, 15, -1, -1)
@@ -1532,7 +1532,7 @@ class Ui_MainWindow(object):
         self.dateDFFactureFilterT1.setMinimumSize(QSize(0, 35))
         self.dateDFFactureFilterT1.setMaximumSize(QSize(16777215, 35))
         self.dateDFFactureFilterT1.setStyleSheet(u"QWidget {background-color: transparent}")
-        self.dateDFFactureFilterT1.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDFFactureFilterT1.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout_9.addWidget(self.dateDFFactureFilterT1, 1, 4, 1, 1)
 
@@ -1596,7 +1596,7 @@ class Ui_MainWindow(object):
         self.dateDFFactureFilterT2.setMinimumSize(QSize(0, 35))
         self.dateDFFactureFilterT2.setMaximumSize(QSize(16777215, 35))
         self.dateDFFactureFilterT2.setStyleSheet(u"QWidget {background-color: transparent}")
-        self.dateDFFactureFilterT2.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDFFactureFilterT2.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout_9.addWidget(self.dateDFFactureFilterT2, 2, 4, 1, 1)
 
@@ -1867,7 +1867,7 @@ class Ui_MainWindow(object):
         self.scrollArea_8.setWidgetResizable(True)
         self.scrollAreaWidgetContents_8 = QWidget()
         self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
-        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 873, 458))
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 636, 303))
         self.verticalLayout_44 = QVBoxLayout(self.scrollAreaWidgetContents_8)
         self.verticalLayout_44.setObjectName(u"verticalLayout_44")
         self.verticalLayout_44.setContentsMargins(-1, 15, -1, -1)
@@ -1952,7 +1952,7 @@ class Ui_MainWindow(object):
         self.dateDMsFilterT2.setMinimumSize(QSize(150, 35))
         self.dateDMsFilterT2.setMaximumSize(QSize(16777215, 35))
         self.dateDMsFilterT2.setStyleSheet(u"QWidget {background-color: transparent}")
-        self.dateDMsFilterT2.setDateTime(QDateTime(QDate(2022, 12, 5), QTime(0, 0, 0)))
+        self.dateDMsFilterT2.setDateTime(QDateTime(QDate(2022, 12, 1), QTime(0, 0, 0)))
 
         self.gridLayout_14.addWidget(self.dateDMsFilterT2, 3, 3, 1, 1, Qt.AlignLeft)
 
@@ -1990,7 +1990,7 @@ class Ui_MainWindow(object):
         self.dateDMsFilterT1.setMinimumSize(QSize(150, 35))
         self.dateDMsFilterT1.setMaximumSize(QSize(16777215, 35))
         self.dateDMsFilterT1.setStyleSheet(u"QWidget {background-color: transparent}")
-        self.dateDMsFilterT1.setDateTime(QDateTime(QDate(2022, 12, 6), QTime(0, 0, 0)))
+        self.dateDMsFilterT1.setDateTime(QDateTime(QDate(2022, 12, 2), QTime(0, 0, 0)))
 
         self.gridLayout_14.addWidget(self.dateDMsFilterT1, 2, 3, 1, 1, Qt.AlignLeft)
 
@@ -2332,7 +2332,7 @@ class Ui_MainWindow(object):
         self.dateDLLivFilterT1.setMinimumSize(QSize(0, 35))
         self.dateDLLivFilterT1.setMaximumSize(QSize(16777215, 35))
         self.dateDLLivFilterT1.setStyleSheet(u"QWidget {background-color: transparent}")
-        self.dateDLLivFilterT1.setDateTime(QDateTime(QDate(2022, 12, 6), QTime(0, 0, 0)))
+        self.dateDLLivFilterT1.setDateTime(QDateTime(QDate(2022, 12, 2), QTime(0, 0, 0)))
 
         self.gridLayout_11.addWidget(self.dateDLLivFilterT1, 2, 4, 1, 1)
 
@@ -2362,7 +2362,7 @@ class Ui_MainWindow(object):
         self.dateDLLivFilterT2.setMinimumSize(QSize(0, 35))
         self.dateDLLivFilterT2.setMaximumSize(QSize(16777215, 35))
         self.dateDLLivFilterT2.setStyleSheet(u"QWidget {background-color: transparent}")
-        self.dateDLLivFilterT2.setDateTime(QDateTime(QDate(2022, 12, 6), QTime(0, 0, 0)))
+        self.dateDLLivFilterT2.setDateTime(QDateTime(QDate(2022, 12, 2), QTime(0, 0, 0)))
 
         self.gridLayout_11.addWidget(self.dateDLLivFilterT2, 3, 4, 1, 1)
 
@@ -2862,7 +2862,7 @@ class Ui_MainWindow(object):
         self.dateAnaLoadD1.setMinimumSize(QSize(100, 35))
         self.dateAnaLoadD1.setMaximumSize(QSize(16777215, 35))
         self.dateAnaLoadD1.setStyleSheet(u"QWidget {background: transparent;}")
-        self.dateAnaLoadD1.setDateTime(QDateTime(QDate(2022, 12, 5), QTime(0, 0, 0)))
+        self.dateAnaLoadD1.setDateTime(QDateTime(QDate(2022, 12, 1), QTime(0, 0, 0)))
 
         self.horizontalLayout_18.addWidget(self.dateAnaLoadD1)
 
@@ -2884,7 +2884,7 @@ class Ui_MainWindow(object):
         self.dateAnaLoadD2.setMinimumSize(QSize(100, 35))
         self.dateAnaLoadD2.setMaximumSize(QSize(16777215, 35))
         self.dateAnaLoadD2.setStyleSheet(u"QWidget {background: transparent;}")
-        self.dateAnaLoadD2.setDateTime(QDateTime(QDate(2022, 12, 5), QTime(0, 0, 0)))
+        self.dateAnaLoadD2.setDateTime(QDateTime(QDate(2022, 12, 1), QTime(0, 0, 0)))
 
         self.horizontalLayout_18.addWidget(self.dateAnaLoadD2)
 
@@ -3450,7 +3450,7 @@ class Ui_MainWindow(object):
         self.dateEchFactureInsert.setMinimumSize(QSize(0, 35))
         self.dateEchFactureInsert.setMaximumSize(QSize(16777215, 35))
         self.dateEchFactureInsert.setStyleSheet(u"")
-        self.dateEchFactureInsert.setDateTime(QDateTime(QDate(2022, 12, 6), QTime(0, 0, 0)))
+        self.dateEchFactureInsert.setDateTime(QDateTime(QDate(2022, 12, 2), QTime(0, 0, 0)))
 
         self.gridLayout_10.addWidget(self.dateEchFactureInsert, 5, 6, 1, 2)
 
@@ -4169,7 +4169,7 @@ class Ui_MainWindow(object):
         self.dateDEStockFilterT2.setMinimumSize(QSize(0, 35))
         self.dateDEStockFilterT2.setMaximumSize(QSize(16777215, 35))
         self.dateDEStockFilterT2.setStyleSheet(u"QWidget {background: transparent;}")
-        self.dateDEStockFilterT2.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDEStockFilterT2.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout.addWidget(self.dateDEStockFilterT2, 2, 4, 1, 1)
 
@@ -4193,7 +4193,7 @@ class Ui_MainWindow(object):
         self.dateDFStockFilterT2.setMinimumSize(QSize(0, 35))
         self.dateDFStockFilterT2.setMaximumSize(QSize(16777215, 35))
         self.dateDFStockFilterT2.setStyleSheet(u"QWidget {background: transparent;}")
-        self.dateDFStockFilterT2.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDFStockFilterT2.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout.addWidget(self.dateDFStockFilterT2, 2, 1, 1, 1)
 
@@ -4203,7 +4203,7 @@ class Ui_MainWindow(object):
         self.dateDFStockFilterT1.setMinimumSize(QSize(0, 35))
         self.dateDFStockFilterT1.setMaximumSize(QSize(16777215, 35))
         self.dateDFStockFilterT1.setStyleSheet(u"QWidget {background: transparent;}")
-        self.dateDFStockFilterT1.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDFStockFilterT1.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout.addWidget(self.dateDFStockFilterT1, 1, 1, 1, 1)
 
@@ -4220,7 +4220,7 @@ class Ui_MainWindow(object):
         self.dateDEStockFilterT1.setMinimumSize(QSize(0, 35))
         self.dateDEStockFilterT1.setMaximumSize(QSize(16777215, 35))
         self.dateDEStockFilterT1.setStyleSheet(u"QWidget {background: transparent;}")
-        self.dateDEStockFilterT1.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDEStockFilterT1.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout.addWidget(self.dateDEStockFilterT1, 1, 4, 1, 1)
 
@@ -4470,7 +4470,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 873, 458))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 782, 290))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.verticalLayout_16.setContentsMargins(-1, 15, -1, -1)
@@ -4597,7 +4597,7 @@ class Ui_MainWindow(object):
         self.dateDEInvFilterT2.setMinimumSize(QSize(0, 35))
         self.dateDEInvFilterT2.setMaximumSize(QSize(16777215, 35))
         self.dateDEInvFilterT2.setStyleSheet(u"QWidget {background: transparent;}")
-        self.dateDEInvFilterT2.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDEInvFilterT2.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout_6.addWidget(self.dateDEInvFilterT2, 2, 4, 1, 1)
 
@@ -4621,7 +4621,7 @@ class Ui_MainWindow(object):
         self.dateDFInvFilterT2.setMinimumSize(QSize(0, 35))
         self.dateDFInvFilterT2.setMaximumSize(QSize(16777215, 35))
         self.dateDFInvFilterT2.setStyleSheet(u"QWidget {background: transparent;}")
-        self.dateDFInvFilterT2.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDFInvFilterT2.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout_6.addWidget(self.dateDFInvFilterT2, 2, 1, 1, 1)
 
@@ -4631,7 +4631,7 @@ class Ui_MainWindow(object):
         self.dateDFInvFilterT1.setMinimumSize(QSize(0, 35))
         self.dateDFInvFilterT1.setMaximumSize(QSize(16777215, 35))
         self.dateDFInvFilterT1.setStyleSheet(u"QWidget {background: transparent;}")
-        self.dateDFInvFilterT1.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDFInvFilterT1.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout_6.addWidget(self.dateDFInvFilterT1, 1, 1, 1, 1)
 
@@ -4648,7 +4648,7 @@ class Ui_MainWindow(object):
         self.dateDEInvFilterT1.setMinimumSize(QSize(0, 35))
         self.dateDEInvFilterT1.setMaximumSize(QSize(16777215, 35))
         self.dateDEInvFilterT1.setStyleSheet(u"QWidget {background: transparent;}")
-        self.dateDEInvFilterT1.setDateTime(QDateTime(QDate(2022, 12, 7), QTime(0, 0, 0)))
+        self.dateDEInvFilterT1.setDateTime(QDateTime(QDate(2022, 12, 3), QTime(0, 0, 0)))
 
         self.gridLayout_6.addWidget(self.dateDEInvFilterT1, 1, 4, 1, 1)
 
@@ -5381,7 +5381,7 @@ class Ui_MainWindow(object):
 
         self.toolBox.setCurrentIndex(0)
         self.toolBox.layout().setSpacing(15)
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(13)
         self.cboxUQCmdFilter.setCurrentIndex(0)
         self.cboxCalcCmd.setCurrentIndex(0)
         self.cBoxModePaiementCmdInsert.setCurrentIndex(0)
@@ -5422,21 +5422,21 @@ class Ui_MainWindow(object):
         self.btnPageStock.setText(QCoreApplication.translate("MainWindow", u"Stock", None))
         self.btnPageInv.setText(QCoreApplication.translate("MainWindow", u"Inventaire", None))
         self.btnPageMS.setText(QCoreApplication.translate("MainWindow", u"Mouvement de stock", None))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page_6), QCoreApplication.translate("MainWindow", u"D\u00e9p\u00f4t ", None))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.tabDepot), QCoreApplication.translate("MainWindow", u"D\u00e9p\u00f4t ", None))
         self.btnPageClient.setText(QCoreApplication.translate("MainWindow", u"Tableau des clients", None))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.tabMenuClient), QCoreApplication.translate("MainWindow", u"Client", None))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.tabClient), QCoreApplication.translate("MainWindow", u"Client", None))
         self.btnPageCmd.setText(QCoreApplication.translate("MainWindow", u"Tableau des commandes", None))
         self.btnPageInsertCmd.setText(QCoreApplication.translate("MainWindow", u"Page d'insertion", None))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page_3), QCoreApplication.translate("MainWindow", u"Commande", None))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.tabCmd), QCoreApplication.translate("MainWindow", u"Commande", None))
         self.btnPageFacture.setText(QCoreApplication.translate("MainWindow", u"Tableau des Factures", None))
         self.btnPageInsertFacture.setText(QCoreApplication.translate("MainWindow", u"Page d'insertion", None))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page_4), QCoreApplication.translate("MainWindow", u"Facture", None))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.tabFac), QCoreApplication.translate("MainWindow", u"Facture", None))
         self.btnPageLiv.setText(QCoreApplication.translate("MainWindow", u"Tableau des livraisons", None))
         self.btnPageInsertLiv.setText(QCoreApplication.translate("MainWindow", u"Page d'insertion", None))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page_5), QCoreApplication.translate("MainWindow", u"Livraison", None))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.tabLiv), QCoreApplication.translate("MainWindow", u"Livraison", None))
         self.btnPageCharts.setText(QCoreApplication.translate("MainWindow", u"Charts", None))
         self.btnPageReport.setText(QCoreApplication.translate("MainWindow", u"Report", None))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page), QCoreApplication.translate("MainWindow", u"Tools", None))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.tabTools), QCoreApplication.translate("MainWindow", u"Tools", None))
 #if QT_CONFIG(tooltip)
         self.btnRollback.setToolTip(QCoreApplication.translate("MainWindow", u"Annuler la derni\u00e8re query", None))
 #endif // QT_CONFIG(tooltip)

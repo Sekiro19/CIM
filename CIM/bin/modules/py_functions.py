@@ -11,6 +11,9 @@ plt.rcParams['figure.constrained_layout.use'] = True
 plt.rcParams['savefig.dpi'] = 500
 import seaborn as sns
 sns.set()
+DRIVER = "SQL Server Native Client 11.0"
+SERVER = "LDZ-JH12YIQYAKP\\SQLEXPRESS"
+DATABASE = 'DDA'
 
 MONTH_NAMES = {1: "Janv.", 2: "Févr.", 3: "Mars", 4: "Avr.", 5: "Mai", 6: "Juin",
                7: "Juil.", 8: "Août", 9: "Sept.", 10: "Oct.", 11: "Nov.", 12: "Déc."}
@@ -18,13 +21,8 @@ WEEKDAY_NAMES = {0: "Lun", 1: "Mar", 2: "Mer", 3: "Jeu", 4: "Ven", 5: "Sam", 6: 
 
 class Functions:
     def __init__(self) -> None:
-        self.CONNSTRING = 'Driver={SQL Server Native Client 11.0};'\
-                            'Server=LDZ-JH12YIQYAKP\SQLEXPRESS;'\
-                            'Database=DDA;'\
-                            'Trusted_Connection=yes;'
-        
+        self.connString = ''
         self.db = QSqlDatabase.addDatabase("QODBC")
-        self.db.setDatabaseName(self.CONNSTRING)
         self.signals = msgSignals()
         
         self.data = {'Commande': None, 'Livraison': None, 'Facture': None} # dataFrames
@@ -37,7 +35,14 @@ class Functions:
                         'Revenu total généré par chaque mode de paiement',
                         'Tendance des ventes', 'Saisonnalité des ventes']
                       }
+    
+    def setConnectionString(self, User: str, password: str):
+        self.connString = f"Driver={DRIVER};Server={SERVER};Database={DATABASE};UID={User};PWD={password};"
+        self.db.setDatabaseName(self.connString)
+        return self.db.open()
         
+    def getConnectionString(self):
+        return self.connString
 
     def _checkConnection(func):
         def wrapper(self, *args, **kwargs):

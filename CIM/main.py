@@ -11,25 +11,79 @@ from bin import *
 from jinja2 import Template
 from num2words import num2words
 
+PAGES = {
+    'StockManager': ['Stock', 'MouvementStock', 'Livraison', 'Commande', 'report', 'analyse'],
+    "InventorySupervisor": ['Produit', 'Inventaire'],
+    "ServiceClient": ['Client', 'Stock', 'Commande', 'Livraison', 'Facture', 'report', 'analyse'],
+    "SU": ['Produit', 'Stock', 'Inventaire', 'Client', 'Commande', 'Facture', 'Livraison', 'MouvementStock', 'report', 'analyse']
+    }
+USERS = {
+    'Gestionnaire de stock': 'StockManager',
+    "Superviseur de l'inventaire": 'InventorySupervisor',
+    "Coordonnateur du service clientèle": 'ServiceClient',
+    "dbo": 'SU',
+}
+
 class MainWindow(QMainWindow):
-    def __init__(self, authorizedPages: list=None) -> None:
+    def __init__(self) -> None:
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        
-        self.authorizedPages = authorizedPages
+        self.loginForm = None
+        self.authorizedPages = list()
         
         self.functions = Functions()
         self.threadPool = QThreadPool()
-        self.canvas = Canvas(self, self.ui.chartArea)
-        self.canvas.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
         self.pk = None
         self.ui.btnConnect.clicked.connect(self.checkConnection)
         self.functions.signals.error.connect(lambda msg: self.showMsg(msg, STYLE_ERROR_MSG))
         self.functions.signals.info.connect(lambda msg: self.showMsg(msg, STYLE_NOTICE_MSG))
         
-        self.info = {}
+        for btn in [self.ui.btnPageProduit, self.ui.btnPageStock, 
+                    self.ui.btnPageInv, self.ui.btnPageMS, 
+                    self.ui.btnPageClient, self.ui.btnPageCmd, 
+                    self.ui.btnPageInsertCmd, self.ui.btnPageFacture,
+                    self.ui.btnPageInsertFacture, self.ui.btnPageLiv,
+                    self.ui.btnPageInsertLiv, self.ui.btnPageCharts, self.ui.btnPageReport]:
+            btn.setVisible(False)
         
+        for i in range(self.ui.toolBox.count()):
+            self.ui.toolBox.setItemEnabled(i, False)
+            
+        self.info = {}
+        self.setLoginWindow()
+        ################
+        ################
+    def authentication(self, user: str, password: str):
+        return self.functions.setConnectionString(user, password)
+
+    def setLoginWindow(self):
+        self.loginForm = LoginForm()
+        self.loginForm.ui.btnClose.clicked.connect(self.closeAll)
+        self.loginForm.ui.btnConnect.clicked.connect(self.login)
+        self.loginForm.show()
+    
+    def login(self):
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+        user = USERS.get(self.loginForm.ui.cBoxPost.currentText())
+        password = self.loginForm.ui.editPassword.text()
+        if self.authentication(user, password):
+            self.authorizedPages = PAGES.get(user)
+            self.setAuthorizedPages()
+            self.loadData()
+            if self.loginForm.close():
+                QApplication.restoreOverrideCursor()
+                self.show()
+        else:
+            QApplication.restoreOverrideCursor()
+            self.showMsg("La connexion a échoué. Veuillez vérifier vos identifiants de connexion et vous assurer que l'instance du serveur SQL est en cours d'exécution.", STYLE_ERROR_MSG)
+        
+    def closeAll(self):
+        self.close()
+        self.loginForm.close()
+    
+    def setAuthorizedPages(self):
         for page in self.authorizedPages:
             if page == 'Produit':
                 self.info[page] = {
@@ -55,6 +109,9 @@ class MainWindow(QMainWindow):
                 self.ui.btnInsertProduit.clicked.connect(lambda: self.insertRecord('Produit'))
                 self.ui.btnUpdateProduit.clicked.connect(lambda: self.updateRecord('Produit'))
                 self.ui.btnRechProduit.clicked.connect(lambda: self.filterView('Produit'))
+                self.ui.toolBox.setItemEnabled(0, True)   
+                self.ui.btnPageProduit.setVisible(True)
+                      
             elif page == 'Stock':
                 self.info[page] = {
                 'viewObj': self.ui.tableViewStock, 
@@ -76,12 +133,15 @@ class MainWindow(QMainWindow):
                 'sBoxFetchRows': (self.ui.sboxStockFetchRows, '(SELECT NULL)')
                             }
                 self.ui.btnPageStock.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pageStock))
-                self.ui.btnPageMS.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pageMS))
                 self.ui.refreshStock.clicked.connect(lambda: self.loadView('Stock'))
                 self.ui.btnPageStockInsert.clicked.connect(lambda: self.setPageInsert('Stock'))
                 self.ui.btnInsertStock.clicked.connect(lambda: self.insertRecord('Stock'))
                 self.ui.btnUpdateStock.clicked.connect(lambda: self.updateRecord('Stock'))
                 self.ui.btnRechStock.clicked.connect(lambda: self.filterView('Stock'))
+                self.ui.toolBox.setItemEnabled(0, True)
+                self.ui.btnPageStock.setVisible(True)
+                self.ui.stackedWidget.setCurrentWidget(self.ui.pageStock)
+                
             elif page == 'Inventaire':
                 self.info[page] = {
                 'viewObj': self.ui.tableViewInv, 
@@ -110,6 +170,10 @@ class MainWindow(QMainWindow):
                 self.ui.btnInsertInv.clicked.connect(lambda: self.insertRecord('Inventaire'))
                 self.ui.btnUpdateInv.clicked.connect(lambda: self.updateRecord('Inventaire'))
                 self.ui.btnRechInv.clicked.connect(lambda: self.filterView('Inventaire'))
+                self.ui.toolBox.setItemEnabled(0, True)
+                self.ui.btnPageInv.setVisible(True)
+                self.ui.stackedWidget.setCurrentWidget(self.ui.pageInv)
+                
             elif page == 'Client':
                 self.info[page] = {
                 'viewObj': self.ui.tableViewClient, 
@@ -130,6 +194,9 @@ class MainWindow(QMainWindow):
                 self.ui.btnInsertClient.clicked.connect(lambda: self.insertRecord('Client'))
                 self.ui.btnUpdateClient.clicked.connect(lambda: self.updateRecord('Client'))
                 self.ui.btnRechClient.clicked.connect(lambda: self.filterView('Client'))
+                self.ui.toolBox.setItemEnabled(1, True)
+                self.ui.btnPageClient.setVisible(True)
+                           
             elif page == 'Commande':
                 self.info[page] = {
                 'viewObj': self.ui.tableViewCmd,
@@ -160,6 +227,10 @@ class MainWindow(QMainWindow):
                 self.ui.btnCalcCmd.clicked.connect(lambda: self.showCalcView('Commande'))
                 self.ui.checkBoxViewTypeCmd.stateChanged.connect(lambda: self.loadView('Commande'))
                 self.ui.tableWidgetCmd.cellDoubleClicked.connect(lambda row, column: self.setWidgetEdit(row, column, self.ui.tableWidgetCmd))
+                self.ui.toolBox.setItemEnabled(2, True)
+                self.ui.btnPageCmd.setVisible(True)
+                self.ui.btnPageInsertCmd.setVisible(True)
+                
             elif page == 'Facture':
                 self.info[page] = {
                 'viewObj': self.ui.tableViewFacture,
@@ -191,6 +262,10 @@ class MainWindow(QMainWindow):
                 self.ui.btnCalcFacture.clicked.connect(lambda: self.showCalcView('Facture'))
                 self.ui.checkBoxViewTypeFacture.stateChanged.connect(lambda: self.loadView('Facture'))
                 self.ui.tableWidgetFacture.cellDoubleClicked.connect(lambda row, column: self.setWidgetEdit(row, column, self.ui.tableWidgetFacture))
+                self.ui.toolBox.setItemEnabled(3, True)
+                self.ui.btnPageFacture.setVisible(True)
+                self.ui.btnPageInsertFacture.setVisible(True)
+                
             elif page == 'Livraison':
                 self.info[page] = {
                 'viewObj': self.ui.tableViewLiv,
@@ -225,6 +300,10 @@ class MainWindow(QMainWindow):
                 self.ui.btnCalcLiv.clicked.connect(lambda: self.showCalcView('Livraison'))
                 self.ui.checkBoxViewTypeLiv.stateChanged.connect(lambda: self.loadView('Livraison'))
                 self.ui.tableWidgetLiv.cellDoubleClicked.connect(lambda row, column: self.setWidgetEdit(row, column, self.ui.tableWidgetLiv))
+                self.ui.toolBox.setItemEnabled(4, True)
+                self.ui.btnPageLiv.setVisible(True)
+                self.ui.btnPageInsertLiv.setVisible(True)
+                
             elif page == 'MouvementStock':
                 self.info[page] = {
                 'viewObj': self.ui.tableViewMS, 
@@ -234,27 +313,33 @@ class MainWindow(QMainWindow):
                             }
                 self.ui.refreshMs.clicked.connect(lambda: self.loadView('MouvementStock'))
                 self.ui.btnRechMs.clicked.connect(lambda: self.filterView('MouvementStock'))
+                self.ui.btnPageMS.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pageMS))
+                
+                self.ui.toolBox.setItemEnabled(0, True)
+                self.ui.btnPageMS.setVisible(True)
+                
+            elif page == 'report':
+                self.ui.btnPageReport.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pageReport))
+                self.ui.btnPageRepPrev.clicked.connect(self.generateReport)
+                self.ui.btnPageRepNav.clicked.connect(lambda: self.generateReport(True))
+                self.ui.toolBox.setItemEnabled(5, True)
+                self.ui.btnPageReport.setVisible(True)
+                
+            elif page == 'analyse':
+                self.canvas = Canvas(self, self.ui.chartArea)
+                self.canvas.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+                
+                self.ui.btnPageCharts.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pageAnalyseChart))
+                self.ui.btnAnaLoadDf.clicked.connect(self.setupDfBtn)
+                self.ui.cboxAnaCount.currentIndexChanged.connect(self.setCountPlotWidgets)
+                self.ui.btnLoad.clicked.connect(self.threadLoadData)
+                self.ui.btnAnaCountDisplay.clicked.connect(self.setCountPlot)
+                self.ui.btnAnaTSDisplay.clicked.connect(self.setTsPlot)
+                self.ui.toolBox.setItemEnabled(5, True)
+                self.ui.btnPageCharts.setVisible(True)
+            
             else:
                 pass
-        
-        
-        self.ui.btnPageCharts.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pageAnalyseChart))
-        self.ui.btnPageReport.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pageReport))
-        ## analyse
-        self.ui.btnAnaLoadDf.clicked.connect(self.setupDfBtn)
-        self.ui.cboxAnaCount.currentIndexChanged.connect(self.setCountPlotWidgets)
-        
-        self.ui.btnLoad.clicked.connect(self.threadLoadData)
-        self.ui.btnAnaCountDisplay.clicked.connect(self.setCountPlot)
-        self.ui.btnAnaTSDisplay.clicked.connect(self.setTsPlot)
-        self.ui.btnPageRepPrev.clicked.connect(self.generateReport)
-        self.ui.btnPageRepNav.clicked.connect(lambda: self.generateReport(True))
-        
-        ################
-        self.loadData()
-        # self.ui.stackedWidget.setCurrentWidget(self.ui.pageStock)
-        self.show()
-        ################
     
     def generateReport(self, openInBrowser: bool=False):
         report = self.ui.cboxRep.currentText()
@@ -262,11 +347,11 @@ class MainWindow(QMainWindow):
         if report == 'Facture':
             queryObj = self.functions.select(f"SELECT * FROM FactureReport WHERE CodeFacture = '{code}'")
             variables, table = self.functions.queryObjToJinja(queryObj, ['CodeProduit', 'DescriptionProduit', 'Quantite', 'PrixUnitaire', 'Remise', 'PrixNet', 'MontantHT'], ['CodeCommande'])
-            variables['TTC_TXT'] = num2words(float(variables['TTC'].replace('\xa0', '').replace(',', '.').replace(' ', '')), lang='fr')
             if table:
-                with open("templates\Facture.html", 'r') as template:
+                with open(os.getcwd()+'\\CIM\\templates\\Facture.html', 'r') as template:
                     factureTemplate = Template(template.read())
                     
+                variables['TTC_TXT'] = num2words(float(variables['TTC'].replace('\xa0', '').replace(',', '.').replace(' ', '')), lang='fr')
                 html = factureTemplate.render(variables=variables, table=table)
                 self.ui.reportView.setHtml('')
                 self.ui.reportView.setHtml(html)
@@ -334,7 +419,7 @@ class MainWindow(QMainWindow):
         
         worker = Worker(self.functions.setDataFrame, 0, d1, d2)
         worker.signals.started.connect(lambda: QApplication.setOverrideCursor(Qt.BusyCursor))
-        worker.signals.finished.connect(lambda: QApplication.restoreOverrideCursor())
+        worker.signals.finished.connect(QApplication.restoreOverrideCursor)
         worker.signals.results.connect(lambda r: 
             (btn.setStyleSheet(btn.styleSheet().replace("data-manipulation-language-100.png", "checkpoint-100.png")), 
              self.showMsg('Données chargées avec succès', STYLE_SUCCESS_MSG)) if r else 
@@ -474,18 +559,21 @@ class MainWindow(QMainWindow):
                 pass
             else:
                 self.setPageInsert(key, False)
-        
-        stockView = self.info['Stock']['viewObj']
-        stockViewModel = stockView.model()
-        DerniereInventaireIndex, QuantitePaletteIndex = -1, -1
-        for iCol in range(2, stockViewModel.columnCount()):
-            if stockViewModel.headerData(iCol, Qt.Orientation.Horizontal) == 'DerniereInventaire':
-                DerniereInventaireIndex = iCol
-            if stockViewModel.headerData(iCol, Qt.Orientation.Horizontal) == 'QuantitePalette':
-                QuantitePaletteIndex = iCol
-        
-        stockView.setItemDelegate(StockColorPalette(DerniereInventaireIndex, QuantitePaletteIndex))
+                
         self.fillCbox()
+        
+        if 'Stock' in self.authorizedPages:
+            stockView = self.info['Stock']['viewObj']
+            stockViewModel = stockView.model()
+            DerniereInventaireIndex, QuantitePaletteIndex = -1, -1
+            for iCol in range(2, stockViewModel.columnCount()):
+                if stockViewModel.headerData(iCol, Qt.Orientation.Horizontal) == 'DerniereInventaire':
+                    DerniereInventaireIndex = iCol
+                if stockViewModel.headerData(iCol, Qt.Orientation.Horizontal) == 'QuantitePalette':
+                    QuantitePaletteIndex = iCol
+            
+            stockView.setItemDelegate(StockColorPalette(DerniereInventaireIndex, QuantitePaletteIndex))
+        
         queryObj = self.functions.select('SELECT * FROM TsLength')
         queryObj.next()
         minDate = datetime.strptime(queryObj.value(0), '%Y-%m-%d').date()
@@ -628,44 +716,57 @@ class MainWindow(QMainWindow):
             self.showMsg(result, STYLE_ERROR_MSG)
 
     def fillCbox(self):
-        queryObj = self.functions.select("SELECT NomMarque Type FROM Marque")
-        self.ui.cboxMarqueProduitInsert.clear()
-        while queryObj.next():
-            self.ui.cboxMarqueProduitInsert.addItem(queryObj.value(0))
-        self.ui.cboxMarqueProduitInsert.setCurrentIndex(0)
-        
-        queryObj = self.functions.select("SELECT CodeProduit FROM Produit")
-        self.ui.cBoxCodeProduitStockInsert.clear()
-        self.ui.cBoxCodeProduitInvInsert.clear()
-        while queryObj.next():
-            value = queryObj.value(0)
-            self.ui.cBoxCodeProduitStockInsert.addItem(value)
-            self.ui.cBoxCodeProduitInvInsert.addItem(value)
-        self.ui.cBoxCodeProduitStockInsert.setCurrentIndex(0)
-        self.ui.cBoxCodeProduitInvInsert.setCurrentIndex(0)
-        
-        queryObj = self.functions.select("SELECT CodeEmplacement FROM Stock")
-        self.ui.cboxCodeEmpStockInsert.clear()
-        self.ui.cboxCodeEmpInvInsert.clear()
-        while queryObj.next():
-            value = str(queryObj.value(0))
-            self.ui.cboxCodeEmpInvInsert.addItem(value)
-            self.ui.cboxCodeEmpStockInsert.addItem(value)
-        self.ui.cboxCodeEmpStockInsert.setCurrentIndex(0)
-        self.ui.cboxCodeEmpInvInsert.setCurrentIndex(0)
-        
-        queryObj = self.functions.select("SELECT CONCAT(Depot, ': ', NomComplet) Type FROM Adv")
-        self.ui.cBoxNomAdvClientInsert.clear()
-        while queryObj.next():
-            self.ui.cBoxNomAdvClientInsert.addItem(queryObj.value(0))
-        self.ui.cBoxNomAdvClientInsert.setCurrentIndex(0)
-        
-        queryObj = self.functions.select("SELECT CodeClient FROM Client")
-        self.ui.cBoxCodeClientCmdInsert.clear()
-        while queryObj.next():
-            self.ui.cBoxCodeClientCmdInsert.addItem(str(queryObj.value(0)))
-        self.ui.cBoxCodeClientCmdInsert.setCurrentIndex(0)
+        if 'Produit' in self.authorizedPages:
+            queryObj = self.functions.select("SELECT NomMarque Type FROM Marque")
+            self.ui.cboxMarqueProduitInsert.clear()
+            while queryObj.next():
+                self.ui.cboxMarqueProduitInsert.addItem(queryObj.value(0))
+            self.ui.cboxMarqueProduitInsert.setCurrentIndex(0)
+            
+        if 'Client' in self.authorizedPages:
+            queryObj = self.functions.select("SELECT CONCAT(Depot, ': ', NomComplet) Type FROM Adv")
+            self.ui.cBoxNomAdvClientInsert.clear()
+            while queryObj.next():
+                self.ui.cBoxNomAdvClientInsert.addItem(queryObj.value(0))
+            self.ui.cBoxNomAdvClientInsert.setCurrentIndex(0)
+            
+        if 'Commande' in self.authorizedPages:
+            queryObj = self.functions.select("SELECT CodeClient FROM Client")
+            self.ui.cBoxCodeClientCmdInsert.clear()
+            while queryObj.next():
+                self.ui.cBoxCodeClientCmdInsert.addItem(str(queryObj.value(0)))
+            self.ui.cBoxCodeClientCmdInsert.setCurrentIndex(0)
+            
+        if 'Stock' in self.authorizedPages:
+            queryObj = self.functions.select("SELECT CodeProduit FROM Produit")
+            self.ui.cBoxCodeProduitStockInsert.clear()
+            while queryObj.next():
+                value = queryObj.value(0)
+                self.ui.cBoxCodeProduitStockInsert.addItem(value)
+            self.ui.cBoxCodeProduitStockInsert.setCurrentIndex(0)
+
+            queryObj = self.functions.select("SELECT CodeEmplacement FROM Stock")
+            self.ui.cboxCodeEmpStockInsert.clear()
+            while queryObj.next():
+                value = str(queryObj.value(0))
+                self.ui.cboxCodeEmpStockInsert.addItem(value)
+            self.ui.cboxCodeEmpStockInsert.setCurrentIndex(0)
+            
+        if 'Inventaire' in self.authorizedPages:
+            queryObj = self.functions.select("SELECT CodeEmplacement FROM Stock")
+            self.ui.cboxCodeEmpInvInsert.clear()
+            while queryObj.next():
+                value = str(queryObj.value(0))
+                self.ui.cboxCodeEmpInvInsert.addItem(value)
+            self.ui.cboxCodeEmpInvInsert.setCurrentIndex(0)
     
+            queryObj = self.functions.select("SELECT CodeProduit FROM Produit")
+            self.ui.cBoxCodeProduitInvInsert.clear()
+            while queryObj.next():
+                value = queryObj.value(0)
+                self.ui.cBoxCodeProduitInvInsert.addItem(value)
+            self.ui.cBoxCodeProduitInvInsert.setCurrentIndex(0)
+            
     def resetWidgets(self, tableName: str):
         for widget in self.info[tableName]['widgets']:
             if widget == None:
@@ -735,7 +836,6 @@ class MainWindow(QMainWindow):
         self.info[tableName]['viewObj'].setModel(model)
         self.resizeCols(tableName, model.columnCount())
         self.setCbox(tableName)
-        
     
         if tableName == 'Facture':
             self.FactureEtat()
@@ -903,47 +1003,35 @@ class MainWindow(QMainWindow):
         return msg.exec()
 
     def checkConnection(self):
-        queryObj = self.functions.select("SELECT @@SERVERNAME, SYSTEM_USER, CURRENT_USER")
+        queryObj = self.functions.select("SELECT @@SERVERNAME, CURRENT_USER")
         if queryObj:
             while queryObj.next():
-                self.showMsg(f"Vous êtes connecté aux:\n\nServer: {queryObj.value(0)}\nUser: {queryObj.value(1)}\nPrivilège: {queryObj.value(2)}", STYLE_SUCCESS_MSG)
+                self.showMsg(f"Vous êtes connecté aux:\n\nServer: {queryObj.value(0)}\nUser: {queryObj.value(1)}", STYLE_SUCCESS_MSG)
 
-    
-class LoginWindow(QMainWindow):
+    def closeEvent(self, event: QCloseEvent) -> None:  # handle close window
+        msg = QMessageBox.question(self,
+                                   "Window close",
+                                   "Fermer la fenêtre ?",
+                                   QMessageBox.Yes, QMessageBox.No)
+        if msg == QMessageBox.Yes:
+            if self.functions.db.isOpen():
+                self.functions.db.close()
+            event.accept()
+        else:
+            event.ignore()
+            
+class LoginForm(QWidget):
     def __init__(self) -> None:
         super().__init__()
-        self.ui = Ui_LoginWindow()
+        self.ui = Ui_loginForm()
         self.ui.setupUi(self)
         self.clickPosition = 0
+        
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
         
         self.ui.leftFrame.mouseMoveEvent = self.moveWindow
-        
         self.ui.checkBoxShowPassword.stateChanged.connect(self.changeEchoMode)
-        self.ui.btnConnect.clicked.connect(self.login)
-        
-        self.show()
-
-    def login(self):
-        post = self.ui.cBoxPost.currentText()
-        if post == 'Gestionnaire de stock':
-            authorizedPages = ['Stock', 'MouvementStock', 'Livraison', 'Commande']
-        elif post == "Superviseur de l'inventaire":
-            authorizedPages = ['Produit', 'Inventaire']
-        elif post == "Coordonnateur du service clientèle":
-            authorizedPages = ['Client', 'Stock', 'Commande', 'Livraison', 'Facture']
-        else:
-            authorizedPages = ['Produit', 'Stock', 'Inventaire', 'Client', 'Commande', 'Facture', 'Livraison', 'MouvementStock']
-        
-        app.setApplicationName('CEM')
-        app.setApplicationVersion('v1.0.0 (64-bit)')
-        app.setWindowIcon(QIcon(r':/icons/bin/ui/icons/logo.svg'))
-        mainWindows = MainWindow(authorizedPages)
-        mainWindows.setWindowTitle('Compact Inventory Monitor (CEM)')
-        mainWindows.show()
-        self.close()
-
 
     def changeEchoMode(self, state):
         if Qt.CheckState(state) == Qt.CheckState.Checked:
@@ -959,8 +1047,23 @@ class LoginWindow(QMainWindow):
     
     def mousePressEvent(self, event):
         self.clickPosition = event.globalPosition().toPoint()
-        
+
+    def triggerloadingAnimation(self, animation: QMovie, start: bool):
+        animation.frameChanged.connect(lambda: self.ui.btnConnect.setIcon(animation.currentPixmap()))
+        if start:
+            self.ui.btnConnect.setEnabled(False)
+            animation.start()
+        else:
+            self.ui.btnConnect.setEnabled(True)
+            animation.stop()
+            self.ui.btnConnect.setIcon(QIcon())
+            del animation
+
 if __name__ == "__main__":
     app = QApplication()
-    window = LoginWindow()
+    app.setApplicationName('CEM')
+    app.setApplicationVersion('v1.0.0 (64-bit)')
+    app.setWindowIcon(QIcon(r':/icons/bin/ui/icons/logo.svg'))
+    mainWindows = MainWindow()
+    mainWindows.setWindowTitle('Compact Inventory Monitor (CEM)')
     sys.exit(app.exec())

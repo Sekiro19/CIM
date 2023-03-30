@@ -1,0 +1,33 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>bin/ui/icons/loadingInf.gif</file>
+    <file>bin/ui/icons/icons8-close-30.png</file>
+    <file>bin/ui/icons/icons8-close-window-50.png</file>
+    <file>bin/ui/icons/icons8-document-30.png</file>
+    <file>bin/ui/icons/icons8-data-manipulation-language-100.png</file>
+    <file>bin/ui/icons/icons8-checkpoint-100.png</file>
+    <file>bin/ui/icons/icons8-close-30.png</file>
+    <file>bin/ui/icons/icons8-forward-arrow-30.png</file>
+    <file>bin/ui/icons/icons8-rollback-100.png</file>
+    <file>bin/ui/icons/icons8-reply-arrow-30.png</file>
+    <file>bin/ui/icons/icons8-pencil-30.png</file>
+    <file>bin/ui/icons/icons8-sql-100.png</file>
+    <file>bin/ui/icons/icons8-combo-chart-30.png</file>
+    <file>bin/ui/icons/icons8-deliver-food-30.png</file>
+    <file>bin/ui/icons/icons8-inventory-management-30.png</file>
+    <file>bin/ui/icons/icons8-left-and-right-30.png</file>
+    <file>bin/ui/icons/icons8-purchase-order-30.png</file>
+    <file>bin/ui/icons/icons8-cheque-30.png</file>
+    <file>bin/ui/icons/icons8-user-30.png</file>
+    <file>bin/ui/icons/icons8-warehouse-30.png</file>
+    <file>bin/ui/icons/icons8-yogurt-30.png</file>
+    <file>bin/ui/icons/icons8-update-left-rotation-30.png</file>
+    <file>bin/ui/icons/cil-arrow-top.png</file>
+    <file>bin/ui/icons/icons8-database-migration-100.png</file>
+    <file>bin/ui/icons/icons8-double-up-96.png</file>
+    <file>bin/ui/icons/icons8-double-down-96.png</file>
+    <file>bin/ui/icons/logo.svg</file>
+    <file>bin/ui/icons/cil-arrow-bottom.png</file>
+    <file>bin/ui/icons/icon_search.svg</file>
+  </qresource>
+</RCC>

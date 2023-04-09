@@ -1,3 +1,4 @@
+after you set up sql server database 
 follow the steps to install the app without installing python
 1. extract both files part1 and part2 to get CIM.exe
 2. launch the installation file (CIM.exe) and click next next until it's installed

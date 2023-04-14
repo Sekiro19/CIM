@@ -1,5 +1,5 @@
 # Description
-This is a sales and inventory management desktop application built with Python and PyQt5. It is designed to help businesses manage their inventory, sales, and payments efficiently.
+This is a sales and inventory management desktop application built with Python and PySide6. It is designed to help businesses manage their inventory, sales, and payments efficiently.
 
 ## CIM images
 ![](https://user-images.githubusercontent.com/126336555/229352558-bc68318c-a465-4976-a4e5-e3125cc6f8aa.png)
